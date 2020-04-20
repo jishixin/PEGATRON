@@ -1,0 +1,11 @@
+https://www.cnblogs.com/rxl007/p/5806051.html
+https://www.cnblogs.com/zawier/p/5700236.html
+https://blog.csdn.net/Ricardo18/article/details/82217227
+https://www.cnblogs.com/maoniu602/p/3585049.html
+/**
+ * @ClassName: ${type_name}
+ * @Description: ${todo}(这里用一句话描述这个类的作用)
+ * @author ${user}
+ * @date ${currentDate:date('yyyy-MM-dd HH:mm:ss')} 
+ * ${tags}
+ */
