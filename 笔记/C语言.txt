@@ -1,0 +1,2186 @@
+数组插入与按原样排序
+#include <stdio.h>
+int main()
+{
+    int a[6]={1,3,4,6,8};
+    int i,j,k,x=0,y;
+    scanf("%d",&k);
+    if(a[4]<k) a[5]=k;
+    else for(i=0;i<5;i++) if(a[i]>k)
+    {x=i;break;}
+    for(j=4;j>=x;j--)
+    {
+    	a[j+1]=a[j];
+    }
+    a[x]=k;
+    for(i=0;i<6;i++)   printf("%d",a[i]);
+}
+
+杨辉三角
+#include <stdio.h>
+int main()
+{
+    int a[6][6];
+    int i,j;
+    for(i=0;i<6;i++)
+	for(j=0;j<=i;j++)
+            {
+            	if(i==0||j==0||j==i) a[i][j]=1;
+            	else a[i][j]=a[i-1][j]+a[i-1][j-1];
+            }
+
+    for(i=0;i<6;i++)
+将一个数组逆序输出
+#include <stdio.h>
+int main()
+{
+    int a[10];
+    int i,j;
+    for(i=0;i<10;i++)
+	scanf("%d",&a[i]);
+    for(i=0;i<5;i++)
+    {
+    	j=a[i];
+    	a[i]=a[9-i];
+    	a[9-i]=j;
+    }
+    for(i=0;i<10;i++)
+	printf("%d ",a[i]);
+}
+输入10个数在数组中，输出最小的数及其下标
+#include <stdio.h>
+int main()
+{
+    int a[10];
+    int i,j,k;
+    for(i=0;i<10;i++)
+    	scanf("%d",&a[i]);
+    	k=a[9];
+    for(i=0;i<9;i++)
+    {
+    	if(k>a[i])
+	{
+		k=a[i];
+		j=i;
+	}
+    }
+    printf("%d\t%d",k,j);
+}
+    {
+    	for(j=0;j<=i;j++)
+		printf("%d",a[i][j]);
+	printf("\n");
+    }
+}
+3*3矩阵对角元素和
+#include <stdio.h>
+int main()
+{
+    int a[3][3];
+    int i,j,x=0;
+    for(i=0;i<3;i++)
+	for(j=0;j<3;j++)
+	    scanf("%d",&a[i][j]);
+    for(i=0;i<3;i++)
+	for(j=i;j<=i;j++)
+              x+=a[i][j];
+    printf("%d",x);
+}
+马鞍数
+#include <stdio.h>
+int main()
+{
+    int a[3][3]={7,8,9,5,2,1,4,1,2};
+    int i,j,x,y=0,t,k,z;
+    for(i=0;i<3;i++)
+    {
+    	x=a[i][0];
+    	for(j=0;j<3;j++)
+	{
+		if(x>a[i][j])  {x=a[i][j];  y=j;}
+	}
+	for(k=0;k<3;k++)
+	{
+
+		if(x<a[k][y])
+		{
+			break;
+		}
+	}
+	if(k==3) printf("%d\t",x);
+    }
+}
+3*3矩形最大和最小元素及其下标
+#include <stdio.h>
+int main()
+{   
+   int a[3][3];
+   int i,j,min,max,z,x,c,v;
+   for(i=0;i<3;i++)
+	   for(j=0;j<3;j++)
+		   scanf("%d",&a[i][j]);
+   max=min=a[0][0];
+   z=x=c=v=0;
+   for(i=0;i<3;i++)
+	   for(j=0;j<3;j++)
+	   {
+		   if(max<a[i][j])
+		   {
+              max=a[i][j];
+			  z=i;
+			  x=j;
+		   }
+		   if(min>a[i][j])
+		   {
+              min=a[i][j];
+			  c=i;
+			  v=j;
+		   }
+	   }
+	printf("%d %d %d\t%d %d %d",max,z,x,min,c,v);
+}
+由小到大排序，有九个元素，输第10个，按原来顺序排序
+#include <stdio.h>
+#include <string.h>
+int main()
+{   
+	int a[10]={1,2,3,4,5,6,7,9,10};
+    int i,j,k,z;
+    scanf("%d",&k);
+	if(k>a[8])  a[9]=k;
+	if(k<a[8]) 
+	{
+        for(i=0;i<8;i++)
+		{
+			if(k<a[i]) {
+			    z=i; break;	
+			}
+		}
+		for(j=9;j>z;j--)
+		{
+           a[j]=a[j-1];
+		}
+		a[z]=k;
+	}
+	for(i=0;i<10;i++)
+		printf("%d",a[i]);
+}
+编写一个函数，将此字符串中从第M个字符开始的全部字符复制成另以个字符串
+#include <stdio.h>
+#include <string.h>
+int main()
+{   
+	char a[10],b[10];
+    int i,j,k;
+	for(i=0;i<10;i++)
+		scanf("%c",&a[i]);
+	scanf("%d",&k);
+	for(i=k;i<10;i++)
+       b[i]=a[i];
+	
+	for(i=k;i<10;i++)
+		printf("%c",b[i]);
+}
+函数求平均数
+#include <stdio.h>
+int avg(int a[5]);
+int avg(int a[5])
+{
+	int i,avge,sum=0;
+	for(i=0;i<5;i++)
+	{
+		sum+=a[i];
+	}
+	avge=sum/5;
+	return(avge);
+}
+main()
+{
+    int i,score[5],avgs;
+    for(i=0;i<5;i++)
+    {
+    	scanf("%d",&score[i]);
+    }
+    avgs=avg(score);
+    printf("%d",avgs);
+}
+菜单式函数
+#include <stdio.h>
+int avg(int a[5]);
+int max(int a[5]);
+int min(int a[5]);
+int avg(int a[5])
+{
+	int sum=0,i,avge;
+	for(i=0;i<5;i++)
+		sum+=a[i];
+	avge=sum/5;
+	return(avge);
+}
+int max(int a[5])
+{
+	int i,m;
+	m=a[0];
+	for(i=1;i<5;i++)
+		if(m<a[i])
+		       m=a[i];
+	return (m);
+}
+int min(int a[5])
+{
+	int i,m;
+	m=a[0];
+	for(i=1;i<5;i++)
+		if(m>a[i])
+		       m=a[i];
+	return (m);
+}
+main()
+{
+    int score[5],x;
+    int i;
+    printf("请输入5个人的成绩：");
+    for(i=0;i<5;i++)
+	scanf("%d",&score[i]);
+    printf("1.平均数\n");
+    printf("2.最大值\n");
+    printf("3.最小值\n");
+    printf("请输入一个数：");
+    scanf("%d",&x);
+    if(x==1)  printf("平均值为%d",avg(score));
+    if(x==2)  printf("最大值为%d",max(score));
+    if(x==3)  printf("最小值为%d",min(score));
+}
+函数阶梯
+#include <stdio.h>
+int avg(int x);
+int avg(int x)
+{
+	int sum;
+	if(x==0||x==1)
+		sum=1;
+	else
+	{
+		sum=x*avg(x-1);
+	}
+	return (sum);
+}
+main()
+{
+    int x;
+    scanf("%d",&x);
+    printf("%d",avg(x));
+}
+P101 年龄问题
+#include <stdio.h>
+int avg(int x);
+int avg(int x)
+{
+	int sum;
+	if(x==0||x==1)
+		sum=1;
+	else
+	{
+		sum=x*avg(x-1);
+	}
+	return (sum);
+}
+main()
+{
+    int x;
+    scanf("%d",&x);
+    printf("%d",avg(x));
+}
+1月5号课堂题目，函数两队比谁胜利
+#include <stdio.h>
+int b(int x[3],int y[3]);
+int b(int x[3],int y[3])
+{
+	int i,m=0,n=0,k=0,t=0;
+	for(i=0;i<3;i++)
+	{
+		if(x[i]>y[i])   m++;
+		if(x[i]<y[i])   n++;
+	}
+	if(m>n)  t++;
+	if(m<n)  t--;
+	if(m=n)  t+=0;
+	return(t);
+}
+main()
+{
+     int x[3],y[3],s;
+     int i;
+     for(i=0;i<3;i++)
+	scanf("%d",&x[i]);
+     for(i=0;i<3;i++)
+	scanf("%d",&y[i]);
+     s=b(x,y);
+     if(s==1)   printf("a  win");
+     if(s==-1)  printf("b  win");
+     if(s==0)   printf("ping");
+}
+
+//三、	输入五个英文单词，请找出它们之中按字典排序法排在最前的一个词。
+#include<stdio.h>
+main()
+{
+	char  a[5][10],temp[10];
+	int i,j;
+
+	for(i=0;i<5;i++)
+		scanf("%s",&a[i]);
+	for(i=0;i<4;i++)
+	for(j=0;j<4-i;j++)
+		if(strcmp(a[j],a[j+1])>0)
+	{
+		strcpy(temp,a[j]);
+		strcpy(a[j],a[j+1]);
+		strcpy(a[j+1],temp);
+	}
+	printf("%s",a[0]);
+}
+//二、	输入10个数，编写一个函数，按降序对其排序，统计其中大于平均值的数的个数。
+#include<stdio.h>
+main()
+{
+	int a[10],y;
+	int i,j,k;
+	for(i=0;i<10;i++)
+		scanf("%d",&a[i]);
+	for(i=0;i<10;i++)
+		for(j=0;j<10-i;j++)
+	{
+		if(a[j]<a[j+1])
+		{
+
+
+		y=a[j];
+		a[j]=a[j+1];
+		a[j+1]=y;
+		}
+	}
+	for(i=0;i<10;i++)
+		printf("%d\t",a[i]);
+}
+
+一、	用指针的方法，把输入的一个字符串按逆序重新排序其字符，并输出。
+
+//一、	通过函数统计某字符串中，英文单词的个数。
+#include<stdio.h>
+int tj(char b[80]);
+int tj(char b[80])
+{
+	int i,j,k=0;
+       	for(i=0;i<80;i++)
+	{
+		if(b[i]==' ')  j=0;
+		else if(j==0)
+		{
+			j=1;
+			k++;
+		}
+	}
+	return k;
+}
+main()
+{
+	char a[80];
+	scanf("%s",&a);
+	printf("%d",tj(a));
+}
+
+/*三、	己知有若干个学生的数据（包括学号、姓名和一门课程的成绩）。请编程实现：
+1．	求课程的平均成绩，输出低于平均成绩的同学的学号、姓名及成绩；
+2．	找出学生中的成绩最高者，输出该学生的学号、姓名及成绩；
+3．	按成绩从高到低排序并输出。*/
+#include<stdio.h>
+main()
+{
+	int a[5]={55,66,77,88,99};
+	char b[6][8]={"狗丰","狗峰","狗林","狗桃","狗谌"};
+	int x,i,j,k,sum=0,max,t;
+	int c[5];
+	double avg;
+	do
+	{
+		printf("1．	求课程的平均成绩，输出低于平均成绩的同学的学号、姓名及成绩\n");
+		printf("2．	找出学生中的成绩最高者，输出该学生的学号、姓名及成绩\n");
+		printf("3．	按成绩从高到低排序并输出\n");
+		printf("4.      退出\n");
+		printf("        请输入1~4\n");
+		scanf("%d",&x);
+		switch(x)
+		{
+		case 1:
+			for(i=0;i<5;i++)
+				sum+=a[i];
+			avg=(double)sum/5;
+			for(i=0,j=0;i<5;i++)
+			{
+				if(a[i]<avg)
+				{
+					c[j]=i;
+				        j++;
+				}
+			}
+			printf("平均分为：%.2lf\n",avg);
+			for(k=0;k<j;k++)
+			printf("低于平均成绩的同学的学号 %d 姓名 %s 成绩 %d\n",c[k]+1,b[c[k]],a[c[k]]);break;
+                case 2://2．	找出学生中的成绩最高者，输出该学生的学号、姓名及成绩；
+			max=a[0];
+			for(i=1;i<5;i++)
+			{
+				if(max<a[i])
+				{
+				    	max=a[i];
+				    	t=i;
+				}
+			}
+			printf("最高成绩的同学的学号 %d 姓名 %s 成绩 %d\n",t+1,b[t],a[t]);break;
+		case 3://3．	按成绩从高到低排序并输出\n
+			{
+				for(i=0;i<4;i++)
+				{
+					for(j=0;j<4-i;j++)
+					{
+						if(a[j]<a[j+1])
+						{
+							t=a[j];
+							a[j]=a[j+1];
+							a[j+1]=t;
+						}
+					}
+				}
+				for(i=0;i<5;i++)
+					printf("学号 %d 姓名 %s 成绩 %d\n",5-i,b[4-i],a[i]);
+			}
+		}
+	}while(x!=4);
+	if(x==4) printf("此程序已退出");
+}
+
+
+0905作业
+#include<stdio.h>
+#include<conio.h>
+#define n 10
+struct student{
+	int sno;
+	int age;
+	char name[10];
+};
+void main()
+{
+	struct student x[n],t;
+	int i,j;
+	printf("请输入信息:\n");
+	for(i=1;i<=3;i++){
+		scanf("%d%d%s",&x[i].sno,&x[i].age,x[i].name);
+	}
+	for(i=1;i<3;i++){
+		for(int j=1;j<=3-i;j++){
+			if(x[j].age<x[j+1].age){
+				t=x[j+1];x[j+1]=x[j];x[j]=t;
+			}
+		}
+	}
+	for(i=1;i<=3;i++){
+		printf("%d %d %s\n",x[i].sno,x[i].age,x[i].name);
+	}
+}
+
+
+#include<stdio.h>
+#include<conio.h>
+main()
+{
+	int max,i,x,n;
+	printf("你需要输入几个数:");
+	scanf("%d",&n);
+	printf("请输入你要输入的数:");
+	for(i=1;i<=n;i++){
+		scanf("%d",&x);
+		if(i==1) max=x;
+		if(max<x) max=x;
+	}
+	printf("%d",max);
+}
+
+<0912数据结构作业>
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+struct student {
+	int no;
+	int age;
+	char name[10];
+};
+
+void input(struct student *p,int n){
+	int i;
+	printf("请输入学生信息:\n");
+	for(i=1;i<=n;i++){
+		scanf("%d%d%s",&p[i].no,&p[i].age,p[i].name);
+	}
+}
+
+void Bubble(struct student *p,int n){
+	int i,j;
+	struct student t;
+	for(i=1;i<=n-1;i++){
+		for(j=1;j<=n-i;j++){
+			if(p[j].age<p[j+1].age){
+				t=p[j];p[j]=p[j+1];p[j+1]=t;
+			}
+		}
+	}
+	printf("排序完成！\n");
+}
+
+void insert(struct student *p,int n,struct student *x){
+	int i,j=n;
+	for(i=1;i<n;i++){
+		if(x->age>=p[i].age){
+			j=i;break;
+		}
+	}
+
+	for(i=n;i>=j+1;i--){
+		p[i]=p[i-1];
+	}
+	p[i]=*x;
+}
+
+void output(struct student *p,int n){
+	int i;
+	printf("学生信息:\n");
+	for(i=1;i<=n;i++){
+		printf("%d  %d  %s\n",p[i].no,p[i].age,p[i].name);
+	}
+}
+
+struct student *Find(struct student *p,int n,char *name){
+	int i=1;
+	for(i=1;i<=n;i++){
+		if(strcmp(p[i].name,name)==0){
+			return &p[i];
+		}
+	}
+	return NULL;
+}
+
+void main(){
+	struct student s[100],*y;
+	char z[10];
+	int n=3,c,i;
+	input(s,n);
+	Bubble(s,n);
+	struct student x;
+	printf("要插入几个数据：\n");
+	scanf("%d",&c);
+	printf("请输入新加的数据：\n");
+	for(i=1;i<=c;i++){
+		scanf("%d%d%s",&x.no,&x.age,x.name);
+		n=n+1;
+		insert(s,n,&x);
+	}
+	output(s,n);
+	printf("请输入要查找的名字：");
+	scanf("%s",z);
+	y=Find(s,n,z);
+	if(y==NULL){
+		printf("没有找到此人！\n");
+	}else{
+		printf("%d %d %s",y->no,y->age,y->name);
+	}
+}
+
+
+//0917
+#include<stdio.h>
+#include<conio.h>
+#include<string.h>
+#define MaxSize 100
+
+typedef char DataType;
+typedef struct{
+	DataType data[MaxSize];
+	int last;
+}Lnode,*List;
+void Input_List(List L){
+	int i=0;
+	char c;
+	printf("请输入数据(回车结束):");
+	scanf("%c",&c);
+	while(c!='\n'){
+		L->data[i]=c;
+		L->last=i++;
+		scanf("%c",&c);
+	}
+}
+//初始化
+void Init_List(List L){
+	L->last=-1;
+}
+//线性表长度
+int Length_List(List L){
+	return L->last+1;
+}
+//
+DataType Get_List(List L,int i){
+	if(i<1||i>L->last+1){
+		printf("输入位置有误!");
+		return ' ';
+	}else{
+		return L->data[i-1];
+	}
+}
+//
+int Location_List(List L,DataType x){
+	int i=0;
+	while(i<=L->last&&L->data[i]!=x)
+		i++;
+	if(i>L->last){
+		return -1;
+	}else{
+		return i+1;
+	}
+}
+//
+void Insert_List(List L,int i,DataType x){
+	int j;
+	if(i<1||i>L->last+1){
+		printf("位置有误!");
+	}else{
+		L->last++;
+		for(j=L->last;j>=i;j--){
+			L->data[j]=L->data[j-1];
+		}
+		L->data[i-1]=x;
+	}
+}
+//
+void Delete_List(List L,int i){
+	int j;
+	if(i<1||i>L->last+1){
+		printf("位置有误!");
+	}else{
+		for(j=i;j<=L->last;j++){
+			L->data[j-1]=L->data[j];
+		}
+		L->last--;
+	}
+}
+//
+void Output_List(List L){
+	int i;
+	if(L->last==-1){
+		printf("无任何数据!");
+	}else{
+		for(i=0;i<Length_List(L);i++){
+			printf("%c\t",L->data[i]);
+		}
+	}
+}
+int main(){
+	Lnode L;
+	Input_List(&L);
+	//
+	//printf("%d",Length_List(&L));
+	//printf("%c",Get_List(&L,0));
+	//printf("%d",Location_List(&L,'x'));
+	Delete_List(&L,2);
+	Output_List(&L);
+}
+
+
+
+//0926数据结构作业(链表)
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+struct student {
+	int age;
+	struct student *next;
+};
+
+struct student *create(){
+	struct student *L=NULL,*s,*r=NULL;
+	int x;
+	printf("请输入你要的数,以负数结束:");
+	scanf("%d",&x);
+	while(x>0){
+		s=(struct student *)malloc(sizeof(struct student));
+		s->age=x;
+		if(L==NULL) L=s;
+		else r->next=s;
+		r=s;
+		scanf("%d",&x);
+	}
+	if(r!=NULL) r->next=NULL;
+	return L;
+}
+
+void print(struct student *L){
+	while(L!=NULL){
+		printf("%d  ",L->age);
+		L=L->next;
+	}
+}
+
+int Length(struct student *L){
+	int s=0;
+	while(L!=NULL){
+		s++;
+		L=L->next;
+	}
+	return s;
+}
+
+int Search(struct student *L,int x){
+	struct student *N;
+	N=L;
+	int s=1;
+	while(L!=NULL&&(L->age)!=x){
+		s++;
+		L=L->next;
+	}
+	if(s>Length(N)){
+		return NULL;
+	}else{
+		return s;
+	}
+}
+
+void Insert(struct student *L,int x,int i){
+	int j=1;
+	struct student *s,*r;
+	s=(struct student *)malloc(sizeof(struct student));
+	r=(struct student *)malloc(sizeof(struct student));
+	s->age=x;
+	if(i>Length(L)) {
+		printf("你插入的位置有误!");
+		return;
+	}
+	while(L!=NULL){
+		j++;
+		if(i==1){
+			r->next=L->next;
+			r->age=L->age;
+			L->age=x;
+			L->next=r;
+			printf("插入成功!\n");
+			return;
+		}
+		if(i==j){
+			s->next=L->next;
+			L->next=s;
+			printf("插入成功!\n");
+			return;
+		}
+		L=L->next;
+	}
+}
+
+void Delete(struct student *L,int i){
+	int j=1;
+	struct student *s,*r;
+	s=(struct student *)malloc(sizeof(struct student));
+	r=(struct student *)malloc(sizeof(struct student));
+	if(i>Length(L)) {
+		printf("你删除的位置有误!");
+		return;
+	}
+	while(L!=NULL){
+		if(i==j) break;
+		j++;
+		L=L->next;
+	}
+	if(i==1){
+		s=L->next;
+		L->age=s->age;
+		L->next=s->next;
+		return;
+	}
+	r=L->next;
+	L->age=r->age;
+	L->next=r->next;
+}
+
+void main(){
+	struct student *L;
+	int age;
+	int x;
+	int i;
+	L=create();
+	print(L);
+	printf("\n长度为:%d\n",Length(L));
+	//printf("请输入你要查询的年龄:");
+	//scanf("%d",&age);
+	//printf("位置:%d\n",Search(L,age));
+	/*printf("请输入你要插的值和位置:");
+	scanf("%d%d",&x,&i);
+	Insert(L,x,i);
+	printf("\n长度为:%d\n",Length(L));
+	print(L);*/
+	printf("请输入你要删除的位置:");
+	scanf("%d",&i);
+	Delete(L,i);
+	printf("\n长度为:%d\n",Length(L));
+	print(L);
+}
+
+1008链
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+typedef struct student {
+	int age;
+	struct student *next;
+}Lnode,* LinkList;
+
+LinkList Create_LinkList(){
+	LinkList L=NULL,r=NULL,s;
+	int x;
+	printf("请输入年龄(以负数结束):");
+	scanf("%d",&x);
+	while(x>=0){
+		s=(LinkList)malloc(sizeof(Lnode));
+		s->age=x;
+		if(L==NULL){
+			L=s;
+		}else{
+			r->next=s;
+		}
+		r=s;
+		scanf("%d",&x);
+	}
+	r->next=NULL;
+	return L;
+}
+
+int Length_LinkList(LinkList L){
+	int j=0;
+	while(L!=NULL){
+		j++;
+		L=L->next;
+	}
+	return j;
+}
+
+LinkList Insert_LinkList(LinkList L,int i,int x){
+	Lnode *p,*r;
+	p=L;
+	int j=1;
+	if(i<0||i>Length_LinkList(L)){
+		printf("插入位置有误!");
+		return L;
+	}else{
+		r=(Lnode *)malloc(sizeof(Lnode));
+		r->age=x;
+		if(i==1){
+			r->next=L;
+			L=r;
+			return L;
+		}else{
+			while(j<i-1){
+				j++;
+				p=p->next;
+			}
+			r->next=p->next;
+			p->next=r;
+			return L;
+		}
+	}
+}
+
+LinkList Delete_LinkList(LinkList L,int i){
+	Lnode *p=L,*r;
+	int j=0;
+	if(i<0||i>Length_LinkList(L)){
+		printf("插入位置有误!");
+		return L;
+	}else{
+		if(i==1){
+			L=L->next;
+			return L;
+		}else{
+			while(j<i-2){
+				j++;
+				p=p->next;
+			}
+			r=p->next;
+			p->next=r->next;
+			return L;
+		}
+	}
+}
+
+
+1007顺序栈
+#include<stdio.h>
+#include<stdlib.h>
+#define MaxSize 50
+typedef char Datatype;
+
+typedef struct {
+	Datatype data[MaxSize];
+	int top;
+}*SeqStack;
+
+SeqStack init_Seqstack(SeqStack S){
+	S->top=-1;
+	return S;
+}
+
+SeqStack Create_SeqStack(SeqStack S){
+	Datatype x;
+	printf("请输入你要的数(以回车结束):");
+	scanf("%c",&x);
+	while(x!='\n'){
+		S->data[++S->top]=x;
+		if(S->top==(MaxSize-1)){
+			printf("装满了!");
+			break;
+		}
+		scanf("%c",&x);
+	}
+	return S;
+}
+
+int Length_SeqStack(SeqStack S){
+	return S->top+1;
+}
+
+void Print_SeqStack(SeqStack S){
+	int i;
+	for(i=0;i<S->top+1;i++){
+		printf("%c  ",S->data[i]);
+	}
+	printf("\n");
+}
+
+int Empty_SeqStack(SeqStack S){
+	if(S->top==-1){
+		return 1;
+	}
+	return 0;
+}
+
+int Push_SeqStack(SeqStack S,Datatype x){
+	if(S->top==(MaxSize-1)){
+		printf("溢出!\n");
+		return 0;
+	}else{
+		S->top++;
+		S->data[S->top]=x;
+		return 1;
+	}
+}
+
+Datatype Pop_SeqStack(SeqStack S){
+	Datatype x;
+	if(Empty_SeqStack(S)){
+		printf("空栈!\n");
+		return '\0';
+	}else{
+		x=S->data[S->top--];
+		return x;
+	}
+}
+
+void main(){
+	SeqStack S;
+	Datatype x;
+	S=init_Seqstack(S);
+	S=Create_SeqStack(S);
+	printf("%d\n",Length_SeqStack(S));
+	Print_SeqStack(S);
+	Push_SeqStack(S,'x');
+	printf("%d\n",Length_SeqStack(S));
+	Print_SeqStack(S);
+	x=Pop_SeqStack(S);
+	printf("出栈的为:%c\n",x);
+	printf("%d\n",Length_SeqStack(S));
+	Print_SeqStack(S);
+}
+
+(错误链栈)
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef int Datatype;
+
+typedef struct Seq{
+	Datatype data;
+	struct Seq *next;
+}Snode,*LinkStack;
+
+LinkStack Init(){
+	LinkStack S;
+	S=NULL;
+	return S;
+}
+
+LinkStack Push(LinkStack S,Datatype x){
+	Snode *p;
+	p=(LinkStack)malloc(sizeof(Snode));
+	p->data=x;
+	p->next=S;
+	S=p;
+	return S;
+}
+
+LinkStack Pop(LinkStack S,int *x){
+	Snode *p=NULL;
+	x=S->data;
+	p=S->next;
+	S=p;
+	return S;
+}
+
+void Print(LinkStack S){
+	while(S!=NULL){
+		printf("%d	",S->data);
+		S=S->next;
+	}
+}
+
+void main(){
+	int *x;
+	LinkStack S;
+	S=Init();
+	S=Push(S,2);
+	S=Pop(S,&x);
+	printf("%d\n",x);
+	Print(S);
+}
+
+//带头节点的链表
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct node{
+	int data;
+	struct node *next;
+}Lnode,*LinkList;
+
+LinkList Create(){
+	LinkList L;
+	Lnode *p,*r;
+	int x;
+	p=L;
+	scanf("%d",&x);
+	while(x>=0){
+		r=(LinkList)malloc(sizeof(Lnode));
+		r->data=x;
+		p->next=r;
+		p=r;
+		scanf("%d",&x);
+	}
+	r->next=NULL;
+	return L;
+}
+
+Lnode *Get(LinkList L,int i){
+	int j=0;
+	Lnode *p;
+	p=L;
+	while(p->next!=NULL&&j<i){
+		j++;
+		p=p->next;
+	}
+	if(i==j) return p;
+	else return NULL;
+}
+
+int Insert(LinkList L,int x,int i){
+	Lnode *p,*r;
+	p=Get(L,i-1);
+	if(p==NULL) return 0;
+	r=(LinkList)malloc(sizeof(Lnode));
+	r->data=x;
+	r->next=p->next;
+	p->next=r;
+	return 1;
+}
+
+int Delete(LinkList L,int i,int *x){
+	Lnode *p,*r;
+	p=Get(L,i-1);
+	if(p==NULL) return 0;
+	r=p->next;
+	*x=r->data;
+	p->next=r->next;
+	return 1;
+}
+
+void Print(LinkList L){
+	L=L->next;
+	while(L){
+		printf("%d	",L->data);
+		L=L->next;
+	}
+}
+
+void main(){
+	LinkList L;
+	int *x,i;
+	L=Create();
+	Print(L);
+	printf("\n");
+	scanf("%d",&i);
+	Delete(L,i,&x);
+	//Insert(L,x,i);
+	Print(L);
+}
+
+
+//顺序栈
+#include<stdio.h>
+#define MaxSize 50
+
+typedef struct{
+	char data[MaxSize];
+	int top;
+}SeqStack;
+
+void Init(SeqStack *S){
+	S->top=-1;
+}
+
+int Empty(SeqStack *S){
+	if(S->top==-1){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+
+void Push(SeqStack *S,int x){
+	if(S->top==MaxSize-1){
+		printf("栈满!");
+		return;
+	}
+	S->data[++S->top]=x;
+}
+
+char Pop(SeqStack *S){
+	char x='/0';
+	if(Empty(S)){
+		printf("栈空!");
+		return x;
+	}
+	x=S->data[S->top--];
+	return x;
+}
+
+char Get(SeqStack *S){
+	if(Empty(S)){
+		printf("栈空!");
+		return '/0';
+	}
+	return S->data[S->top];
+}
+
+void Print(SeqStack S){
+	while(S.top!=-1){
+		printf("%c	",S.data[S.top]);
+		S.top--;
+	}
+}
+
+void main(){
+	SeqStack S;
+	Init(&S);
+	Push(&S,'5');
+	Push(&S,'4');
+	Push(&S,'7');
+	Pop(&S);
+	Print(S);
+}
+//队列
+#include<stdio.h>
+#define MaxSize 50
+
+typedef struct{
+	char data[MaxSize];
+	int front ,rear;
+}SeqQueue;
+
+void Init(SeqQueue *S){
+	S->front=S->rear=0;
+}
+
+int Empty(SeqQueue *S){
+	if(S->front==S->rear){
+		return 1;
+	}else{
+		return 0;
+	}
+}
+
+void In(SeqQueue *S,int x){
+	if((S->rear+1)%MaxSize==S->front){
+		printf("队满!");
+		return;
+	}
+	S->data[S->rear]=x;
+	S->rear=(S->rear+1)%MaxSize;
+}
+
+char Out(SeqQueue *S){
+	char x='/0';
+	if(Empty(S)){
+		printf("队空!");
+		return x;
+	}
+	x=S->data[S->front];
+	S->front=(S->front+1)%MaxSize;
+	return x;
+}
+
+void Print(SeqQueue S){
+	while(S.front!=S.rear){
+		printf("%c  ",S.data[S.front]);
+		S.front=(S.front+1)%MaxSize;
+	}
+}
+
+void main(){
+	SeqQueue S;
+	char x;
+	Init(&S);
+	In(&S,'5');
+	In(&S,'5');
+	In(&S,'5');
+	Print(S);
+}
+
+//链栈
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct Node {
+	char data;
+	struct Node *next;
+}StackNode,*LinkStack;
+
+
+LinkStack Init(){
+	LinkStack L=NULL;
+	return L;
+}
+
+int  Empty(LinkStack L){
+	if(L=NULL){
+		return 1;
+	}
+	return 0;
+}
+
+LinkStack Push(LinkStack L,char x){
+	StackNode *s;
+	s=(LinkStack)malloc(sizeof(StackNode));
+	s->data=x;
+	if(L==NULL){
+		L=s;
+		s->next=NULL;
+	}else{
+		s->next=L;
+		L=s;
+	}
+	return L;
+}
+
+LinkStack Pop(LinkStack L,char *x){
+	if(Empty(L)){
+		return L;
+	}
+	*x=L->data;
+	L=L->next;
+	return L;
+}
+
+void Print(LinkStack L){
+	while(L!=NULL){
+		printf("%c ",L->data);
+		L=L->next;
+	}
+}
+
+void main(){
+	LinkStack L;
+	char x;
+	L=Init();
+	L=Push(L,'5');
+	L=Push(L,'5');
+	L=Push(L,'a');
+	L=Pop(L,&x);
+	printf("%c 	",x);
+	Print(L);
+}
+
+
+//链队
+
+#include<stdio.h>
+#include<stdlib.h>
+
+typedef struct Node {
+	char data;
+	struct Node *next;
+}StackNode;
+
+typedef struct {
+	StackNode *front;
+	StackNode *rear;
+}LQueue;
+
+
+void Init(LQueue *Q){
+	Q->front=NULL;
+	Q->rear=Q->front;
+}
+
+int  Empty(LQueue *Q){
+	if(Q->front==NULL){
+		return 1;
+	}
+	return 0;
+}
+
+void In(LQueue *Q,char x){
+	StackNode *s;
+	s=(StackNode*)malloc(sizeof(StackNode));
+	s->data=x;
+	s->next=NULL;
+	if(Q->front==NULL){
+		Q->front=Q->rear=s;
+	}else{
+		Q->rear->next=s;
+		Q->rear=s;
+	}
+}
+
+char Out(LQueue *Q){
+	StackNode *s;
+	if(Empty(Q)){
+		return '/0';
+	}
+	s=Q->front;
+	if(Q->front==Q->rear){
+		Q->front=Q->rear=NULL;
+	}else{
+		Q->front=Q->front->next;
+	}
+	return s->data;
+}
+
+void Print(LQueue Q){
+	while(Q.front!=NULL){
+		printf("%c ",Out(&Q));
+	}
+}
+
+void main(){
+	LQueue Q;
+	Init(&Q);
+	In(&Q,'c');
+	In(&Q,'5');
+	//printf("%c  ",Out(&Q));
+	//printf("%c",Out(&Q));
+	Print(Q);
+}
+
+
+//项目三
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#define MaxSize 50
+
+typedef struct {
+	int no[MaxSize];
+	int front,rear;
+}SeQueue;
+
+void Init(SeQueue * S){
+	S->front=S->rear=0;
+}
+
+void In(SeQueue * S,int x){
+	if((S->rear+1)%MaxSize==S->front){
+			printf("就诊额度达到上限!");
+			return;
+	}
+	S->no[S->rear]=x;
+	S->rear=(S->rear+1)%MaxSize;
+}
+
+int Out(SeQueue * S){
+	int x;
+	if(S->rear==S->front){
+		printf("还没人就诊呢!");
+		return -1;
+	}
+	x=S->no[S->front];
+	S->front=(S->front+1)%MaxSize;
+	return x;
+}
+
+void Display(SeQueue S){
+	int x=0;
+	while(1){
+		if(S.front==S.rear) return;
+		x=Out(&S);
+		printf("%d  ",x);
+	}
+}
+
+void main(){
+	int x,y,z;
+	SeQueue S;
+	Init(&S);
+	while(1){
+		printf("\n1. 排队\n2. 就诊\n3. 查看排队\n4. 不再排队，余下依次就诊\n5. 下班\n");
+		printf("请输入你要执行的操作:");
+		scanf("%d",&z);
+		switch(z){
+		case 1: printf("请输入病例号:");
+			scanf("%d",&x);
+			In(&S,x);
+			printf("正在排队中-----\n");
+			break;
+		case 2: printf("病历号为:%d病人已就诊!\n",Out(&S));
+			break;
+		case 3: printf("队伍为:");
+			Display(S);
+			break;
+		case 4: printf("不再排队，余下的都去就诊:");
+			while(1){
+				if(S.front==S.rear) break;
+				y=Out(&S);
+				printf("%d  ",y);
+			}
+			exit(1);
+			break;
+		case 5: printf("下班了,不用排队了,明天再来!");
+			exit(1);
+			break;
+		}
+	}
+}
+
+//链队项目报告
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+typedef struct node{
+	int no;
+	struct node *next;
+}StackNode;
+
+typedef struct {
+	StackNode *front;
+	StackNode *rear;
+}LQueue;
+
+void Init(LQueue *L){
+	L->rear=L->front=NULL;
+}
+
+void In(LQueue *L,int x){
+	StackNode *r;
+	r=(StackNode*)malloc(sizeof(StackNode));
+	r->no=x;
+	if(L->front==NULL){
+		L->rear=L->front=r;
+	}else{
+		L->rear->next=r;
+		L->rear=r;
+	}
+	L->rear->next=NULL;
+}
+
+int Out(LQueue *L){
+	int x;
+	if(L->front==NULL){
+		printf("还没有病人就诊呢!\n");
+		return -1;
+	}
+	x=L->front->no;
+	L->front=L->front->next;
+	if(L->front==NULL){
+		L->rear=L->front=NULL;
+	}
+	return x;
+}
+
+void Display(LQueue L){
+	while(L.front!=NULL){
+		printf("%d  ",Out(&L));
+	}
+}
+
+void main(){
+	int x,y,z;
+	LQueue L;
+	Init(&L);
+	while(1){
+		printf("\n1. 排队\n2. 就诊\n3. 查看排队\n4. 不再排队，余下依次就诊\n5. 下班\n");
+		printf("请输入你要执行的操作:");
+		scanf("%d",&z);
+		switch(z){
+		case 1: printf("请输入病例号:");
+			scanf("%d",&x);
+			In(&L,x);
+			printf("正在排队中-----\n");
+			break;
+		case 2: printf("病历号为:%d病人已就诊!\n",Out(&L));
+			break;
+		case 3: printf("队伍为:");
+			Display(L);
+			break;
+		case 4: printf("不再排队，余下的都去就诊:");
+			while(L.front!=NULL){
+				printf("%d  ",Out(&L));
+			}
+			exit(1);
+			break;
+		case 5: printf("下班了,不用排队了,明天再来!");
+			exit(1);
+			break;
+		}
+	}
+}
+
+//二叉树基本实现(上课基础内容)
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+typedef struct snode{
+	int date;
+	struct snode *lchild,*rchild;
+}snode,*Tree;
+
+int preord[]={1,2,4,0,7,0,0,0,3,5,0,0,6,0,0};//先序
+int inord[]={0,4,7,2,0,0,0,1,0,5,0,3,0,6,0};//中序
+int postord[]={0,7,4,0,0,0,2,0,0,5,0,0,6,3,1};//后序
+char cinord[]={'#','1','#','+','2','*','3','-','#','4','#','/','#','5','#'};
+int n=0;
+
+Tree Create_Tree(Tree t){
+	int x=preord[n++];
+	if(x==0) t=NULL;
+	else{
+		t=(Tree)malloc(sizeof(snode));
+		t->lchild=Create_Tree(t->lchild);
+		t->rchild=Create_Tree(t->rchild);
+		t->date=x;
+	}
+	return t;
+}
+
+void Pre_Order(Tree t){
+	if(t==NULL) return;
+	else{
+		printf("%d ",t->date);
+		In_Order(t->lchild);
+		In_Order(t->rchild);
+	}
+}
+
+void  In_Order(Tree t){
+	if(t==NULL) return;
+	else{
+		In_Order(t->lchild);
+		printf("%d ",t->date);
+		In_Order(t->rchild);
+	}
+}
+
+void  Post_Order(Tree t){
+	if(t==NULL) return;
+	else{
+		In_Order(t->lchild);
+		In_Order(t->rchild);
+		printf("%d ",t->date);
+	}
+}
+
+int Count(Tree t){
+	if(t==NULL) return 0;
+	else return 1+Count(t->lchild)+Count(t->rchild);
+}
+
+int Count_leaf(Tree t){
+	if(t==NULL) return 0;
+	if(t->lchild==NULL&&t->rchild==NULL) return 1;
+	return Count_leaf(t->lchild)+Count_leaf(t->rchild);
+}
+
+int Height(Tree t){
+	if(t==NULL) return 0;
+	else{
+		int m=Height(t->lchild);
+		int n=Height(t->rchild);
+		return (m>n)?m+1:n+1;
+	}
+}
+
+Tree Copy(Tree t){
+	if(t==NULL) return NULL;
+	else{
+		Tree Temp=(Tree)malloc(sizeof(snode));
+		Temp->date=t->date;
+		Temp->lchild=Copy(t->lchild);
+		Temp->rchild=Copy(t->rchild);
+		return Temp;
+	}
+}
+
+void main(){
+	Tree t,temp;
+	t=Create_Tree(t);
+	printf("先序排序为:");
+	Pre_Order(t);
+//	printf("\n中序排序为:");
+//	In_Order(t);
+//	printf("\n后序排序为:");
+//	Post_Order(t);
+//	printf("\n结点总数:%d",Count(t));
+//	printf("\n叶子结点数:%d",Count_leaf(t));
+//	printf("\n二叉树的深度:%d",Height(t));
+//	temp=Copy(t);
+//	printf("\ntemp先序排序为:");
+//	Pre_Order(t);
+}
+
+//数据结构项目四
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MaxSize 100
+
+typedef char ElemType;
+typedef struct node{
+    ElemType data;
+    struct node *lchild;
+    struct node *rchild;
+} BTNode;
+
+
+BTNode *CRTree(char T[],int i,int j){
+    BTNode *p;
+    int k,m=0,n;
+    if (i==j){
+        p=(BTNode *)malloc(sizeof(BTNode));
+        p->data=T[i];
+        p->lchild=NULL;
+        p->rchild=NULL;
+        return p;
+    }
+    for (k=i; k<=j; k++){
+	if (T[k]=='+' || T[k]=='-'){
+            m++;
+            n=k;
+        }
+    }
+
+    if (m==0){
+        for (k=i; k<=j; k++){
+		if (T[k]=='*' || T[k]=='/'){
+			m++;
+			n=k;
+		}
+        }
+    }
+    if (m!=0){
+        p=(BTNode *)malloc(sizeof(BTNode));
+        p->data=T[n];
+        p->lchild=CRTree(T,i,n-1);
+        p->rchild=CRTree(T,n+1,j);
+        return p;
+    }
+    else
+        return NULL;
+}
+
+void DispBTNode(BTNode *B){
+    if (B!=NULL){
+        if (B->data=='2'||B->data=='4'){
+		printf("(");
+        }
+		DispBTNode(B->lchild);
+		printf("%c",B->data);
+		DispBTNode(B->rchild);
+        if (B->data=='3'||B->data=='5'){
+		printf(")");
+        }
+    }
+}
+
+
+double Comp(BTNode *B){
+    double x,y;
+    if (B==NULL)
+        return 0;
+    if (B->lchild==NULL && B->rchild==NULL)
+        return B->data-'0';
+    x=Comp(B->lchild);
+    y=Comp(B->rchild);
+    switch(B->data){
+	    case '+':
+		return x+y;
+	    case '-':
+		return x-y;
+	    case '*':
+		return x*y;
+	    case '/':
+		if (y!=0)
+		    return x/y;
+		else
+		    printf("分母不能为0!!!!");
+		    exit(0);
+    }
+}
+
+int main(){
+    BTNode *B;
+    char T[MaxSize]="1+2*3-4/5";
+    printf("代数表达式:%s\n",T);
+    B=CRTree(T,0,strlen(T)-1);
+    printf("对应中序二叉树:");
+    DispBTNode(B);
+    printf("\n表达式的值:%g\n",Comp(B));
+
+}
+
+
+#include <stdio.h>
+#include <stdlib.h>
+int visited[10]={0};
+typedef struct ArcNode{
+	int cityid;
+	struct ArcNode *next;
+}ArcNode;
+
+typedef struct{
+	char city[10];
+	ArcNode * frist;
+}Vnode;
+
+typedef struct{
+	Vnode citys[10];
+	int vexnum,arcnum;
+}Graph;
+
+Graph create(){
+	ArcNode *p;
+	int i,s,d;
+	Graph map;
+	printf("请输入城市和公路的数量(用,隔开):");
+	scanf("%d,%d",&map.vexnum,&map.arcnum);
+	getchar();
+	for(i=0;i<map.vexnum;i++){
+		printf("第%d城市名称:",i);
+		scanf("%s",&map.citys[i].city);
+		map.citys[i].frist=NULL;
+	}
+	for(i=0;i<map.arcnum;i++){
+		printf("公里序号(从几号,到几号):");
+		scanf("%d,%d",&s,&d);
+		p=(ArcNode*)malloc(sizeof(ArcNode));
+		p->cityid=d;
+		p->next=map.citys[s].frist;
+		map.citys[s].frist=p;
+		p=(ArcNode*)malloc(sizeof(ArcNode));
+		p->cityid=s;
+		p->next=map.citys[d].frist;
+		map.citys[d].frist=p;
+	}
+	return map;
+}
+
+void DFS(Graph map,int i){
+	ArcNode *p;
+	if(visited[i]==0){
+		printf("%s ",map.citys[i].city);
+		visited[i]=1;
+		p=map.citys[i].frist;
+		while(p!=NULL){
+			if(visited[p->cityid]==0){
+				DFS(map,p->cityid);
+			}
+			p=p->next;
+		}
+	}
+}
+
+int main(){
+	Graph map;
+	int i;
+	map=create();
+	for(i=0;i<map.vexnum;i++){
+		DFS(map,i);
+	}
+}
+
+
+//眭宇航期末作业
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define MaxSize 50
+
+//结构体 教师的信息 职工号、姓名、性别、年龄、学历、工资、住址、电话
+typedef struct teaMsg{
+	int teano[MaxSize];
+	char teaname[MaxSize][12];
+	char teasex[MaxSize][4];
+	int age[MaxSize];
+	char education[MaxSize][12];
+	int sal[MaxSize];
+	char address[MaxSize][30];
+	char phone[MaxSize][13];
+	int i;
+}teaMsg;
+
+//录入操作 顺便放入文件中 文件位置:E:\\teaMsg.txt 已判断职工号是否重复
+void tea_Input(teaMsg * t){
+	FILE *teaMsg=fopen("E:\\teaMsg.txt","at");
+	int teano,age,sal,i;
+	char teaname[12],teasex[4],education[12],address[30],phone[13];
+	printf("请输入职工号:");
+	scanf("%d",&teano);
+	if(t->i>0){
+		for(i=0;i<t->i;i++){
+			if(t->teano[i]==teano){
+				printf("不能输入相同的职工号哦!\n");
+				return;
+			}
+		}
+	}
+	printf("请输入姓名:");
+	scanf("%s",teaname);
+	printf("请输入性别:");
+	scanf("%s",teasex);
+	printf("请输入年龄:");
+	scanf("%d",&age);
+	printf("请输入学历:");
+	scanf("%s",education);
+	printf("请输入工资:");
+	scanf("%d",&sal);
+	printf("请输入住址:");
+	scanf("%s",address);
+	printf("请输入电话:");
+	scanf("%s",&phone);
+	t->teano[t->i]=teano;
+	strcpy(t->teaname[t->i],teaname);
+	strcpy(t->teasex[t->i],teasex);
+	t->age[t->i]=age;
+	strcpy(t->education[t->i],education);
+	t->sal[t->i]=sal;
+	strcpy(t->address[t->i],address);
+	strcpy(t->phone[t->i],phone);
+	t->i=t->i+1;
+	fprintf(teaMsg,"\n职工号:%d ",teano);
+	fprintf(teaMsg,"姓名:%s ",teaname);
+	fprintf(teaMsg,"性别:%s ",teasex);
+	fprintf(teaMsg,"年龄:%d ",age);
+	fprintf(teaMsg,"学历:%s ",education);
+	fprintf(teaMsg,"工资:%d ",sal);
+	fprintf(teaMsg,"住址:%s ",address);
+	fprintf(teaMsg,"电话:%s",phone);
+	fclose(teaMsg);
+	printf("已录入职工号为:%d的信息\n",teano);
+}
+//从文件中输出所有信息
+void tea_Output(){
+	printf("所有信息:");
+	FILE *teaMsg=fopen("E:\\teaMsg.txt","r");
+	char lineMsg[1024];
+	while(!feof(teaMsg))
+	{
+		fgets(lineMsg, 1024, teaMsg); // 包含了\n
+		printf("%s\n", lineMsg);
+	}
+	fclose(teaMsg);
+}
+//根据工资排序
+void  sort(teaMsg * t,int sals[][2]){
+	int i,j,k;
+	for(i=0;i<t->i;i++){
+		sals[i][0]=t->sal[i];
+		sals[i][1]=i;
+	}
+	for(j=0;j<t->i-1;j++){
+		for(k=0;k<t->i-1;k++){
+			if(sals[k][0]>sals[k+1][0]){
+				int tmp = sals[k];
+				sals[k][2] = sals[k+1][2];
+				sals[k+1][2] = tmp;
+			}
+		}
+	}
+}
+//根据工资查询并输出
+void search(teaMsg * t,int sal){
+	printf("查找到的信息:\n");
+	int length=t->i,j=-1;
+	int sals[length][2],i;
+	sort(t,sals);
+	for(i=0;i<t->i;i++){
+		if(sals[i][0]==sal){
+				j=1;
+			printf("职工号:%d 姓名:%s 性别:%s 年龄:%d 学历:%s 工资:%d 住址:%s 电话:%s \n",
+				t->teano[sals[i][1]],t->teaname[sals[i][1]],t->teasex[sals[i][1]],
+				t->age[sals[i][1]],t->education[sals[i][1]],t->sal[sals[i][1]],t->address[sals[i][1]],
+				t->phone[sals[i][1]]);
+		}
+	}
+	if(j==-1){
+		printf("不好意思,没有找到哦!\n");
+	}
+}
+//每次删除或修改后都重新写入文件
+void reWrite(teaMsg * t){
+	int i;
+	FILE *teaMsg=fopen("E:\\teaMsg.txt","w+");
+	for(i=0;i<t->i;i++){
+		fprintf(teaMsg,"\n职工号:%d ",t->teano[i]);
+		fprintf(teaMsg,"姓名:%s ",t->teaname[i]);
+		fprintf(teaMsg,"性别:%s ",t->teasex[i]);
+		fprintf(teaMsg,"年龄:%d ",t->age[i]);
+		fprintf(teaMsg,"学历:%s ",t->education[i]);
+		fprintf(teaMsg,"工资:%d ",t->sal[i]);
+		fprintf(teaMsg,"住址:%s ",t->address[i]);
+		fprintf(teaMsg,"电话:%s",t->phone[i]);
+	}
+	fclose(teaMsg);
+}
+//根据职工号删除信息
+void del(teaMsg * t,int teano){
+	int i,k=-1;
+	for(i=0;i<t->i;i++){
+		if(t->teano[i]==teano){
+			k=i;
+		}
+	}
+	if(k==-1){
+			printf("你要删除的职工号有误!\n");
+		return;
+	}
+	for(i=k;i<t->i-1;i++){
+		t->teano[i]=t->teano[i+1];
+		strcpy(t->teaname[i],t->teaname[i+1]);
+		strcpy(t->teasex[i],t->teasex[i+1]);
+		t->age[i]=t->age[i+1];
+		strcpy(t->education[i],t->education[i+1]);
+		t->sal[i]=t->sal[i+1];
+		strcpy(t->address[i],t->address[i+1]);
+		strcpy(t->phone[i],t->phone[i+1]);
+		t->i=--t->i;
+	}
+	if(k==t->i-1){
+		t->i=--t->i;
+	}
+	reWrite(t);
+	printf("删除成功!");
+}
+//根据职工号修改信息
+void edit(teaMsg * t,int teano){
+	int i,k=-1;
+	for(i=0;i<t->i;i++){
+		if(t->teano[i]==teano){
+			k=i;
+		}
+	}
+	if(k==-1){
+		printf("没有找到这个职工号,请保证输对了\n");
+		return;
+	}
+	printf("现在修改职工号为%d的信息:\n",t->teano[k]);
+	printf("请输入姓名:");
+	scanf("%s",t->teaname[k]);
+	printf("请输入性别:");
+	scanf("%s",t->teasex[k]);
+	printf("请输入年龄:");
+	scanf("%d",&t->age[k]);
+	printf("请输入学历:");
+	scanf("%s",t->education[k]);
+	printf("请输入工资:");
+	scanf("%d",&t->sal[k]);
+	printf("请输入住址:");
+	scanf("%s",t->address[k]);
+	printf("请输入电话:");
+	scanf("%s",&t->phone[k]);
+	reWrite(t);
+	printf("修改完成!\n");
+}
+
+int main(){
+	teaMsg *t;
+	t->i=0;
+	fopen("E:\\teaMsg.txt", "w+");
+	int i,sal,teano;
+	while(1){
+		printf("------------职工信息管理系统---------------\n");
+		printf("-------------1. 信息录入-------------------\n");
+		printf("-------------2. 信息浏览-------------------\n");
+		printf("-------------3. 信息查询-------------------\n");
+		printf("-------------4. 信息删除-------------------\n");
+		printf("-------------5. 信息修改-------------------\n");
+		printf("---------------0. 退出---------------------\n");
+		printf("请输入选项:");
+		scanf("%d",&i);
+		switch(i){
+			case 1:tea_Input(t);break;
+			case 2:tea_Output();break;
+			case 3:
+				printf("请输入要查询的工资:");
+				scanf("%d",&sal);
+				search(t,sal);break;
+			case 4:
+				printf("请输入要删除的职工号:");
+				scanf("%d",&teano);
+				del(t,teano);break;
+			case 5:
+				printf("请输入要修改的职工号:");
+				scanf("%d",&teano);
+				edit(t,teano);break;
+			case 0:
+				exit(0);break;
+			default:
+				printf("请输入正确的选项哦!(退出请摁0)\n");
+		}
+	}
+}
+
+
+//在开散列表上查找元素
+#include <stdlib.h>
+#include <stdio.h>
+#define MaxSize 20
+
+typedef struct node{
+	int key;
+	struct node * next;
+}ChainHash;
+
+ChainHash *Htc[MaxSize];
+
+void Create_Hash(ChainHash *Htc[]){
+	ChainHash * p;
+	int i,j;
+	scanf("%d",&i);
+	while(i!=-1){
+		j=i%13;
+		p=(ChainHash * )malloc(sizeof(ChainHash));
+		p->next=Htc[j];
+		p->key=i;
+		Htc[j]=p;
+		scanf("%d",&i);
+	}
+}
+
+void Print_Hash(ChainHash *Htc[]){
+	int i;
+	ChainHash *p;
+	for(i=0;i<13;i++){
+		if(Htc[i]==NULL) printf("%3d | ^ \n",i);
+		else{
+			p=Htc[i];
+			printf("%3d | -> ",i);
+			while(p!=NULL){
+				printf("%5d -> ",p->key);
+				p=p->next;
+			}
+			printf("\n");
+		}
+	}
+}
+
+int Search_hash(ChainHash *Htc[],int k){
+	ChainHash *p;
+	int j;
+	j=k%13;
+	p=Htc[j];
+	if(p!=NULL){
+		while((p->key!=k)&&(p->next!=NULL)){
+			p=p->next;
+		}
+		if(p->key==k) return j;
+		else{
+			return -1;
+		}
+	}
+	return -1;
+}
+
+void main(){
+	ChainHash *Htc[MaxSize];
+	int i,k;
+	for(i=0;i<13;i++){
+		Htc[i]=NULL;
+	}
+	printf("输入元素关键码值,用空格分开,-1结束:\n");
+	Create_Hash(Htc);
+	printf("显示建立的开散列表:\n");
+	Print_Hash(Htc);
+	printf("输入待查元素关键码:");
+	scanf("%d",&i);
+	k=Search_hash(Htc,i);
+	if(k==-1){
+		printf("开散列表中待查数据元素不存在\n");
+	}else{
+		printf("存在,在开散列表的%d位置上",k);
+	}
+}
+
+
+//二分查找法
+#include <stdlib.h>
+#include <stdio.h>
+typedef struct{
+	int id;
+	int score;
+}stu;
+//n:数组的长度
+int Bin_Search(stu a[],int n,int k){
+	int low=1,high=n,mid;
+	while(low<=high){
+		mid=(low+high)/2;
+		if(k==a[mid].score){
+			return a[mid].id;
+		}else if(k<a[mid].score){
+			high=mid-1;
+		}else{
+			low=mid-1;
+		}
+	}
+	return 0;
+}
+
+void main(){
+	stu s[11];
+	int i,id,score;
+	printf("请按照成绩递增顺序输入学号和分数:\n");
+	for(i=1;i<11;i++){
+		scanf("%d,%d",&s[i].id,&s[i].score);
+	}
+	printf("输入要查找的分数:");
+	scanf("%d",&score);
+	id=Bin_Search(s,11,score);
+	if(id==0) printf("不存在!");
+	else{
+		printf("学号为:%d\n",id);
+	}
+}

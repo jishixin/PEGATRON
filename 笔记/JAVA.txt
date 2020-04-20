@@ -1,0 +1,1117 @@
+圆的面积
+import java.util.Scanner;
+
+public class HElloWorld{
+	public static void main(String[] args) {
+		Scanner sr=new Scanner(System.in);
+		System.out.print("请输入一个值:");
+		double r=sr.nextDouble();
+		double s=r*r*3.14;
+		System.out.println("面积为:"+s);
+	}
+}
+
+package jishixin;
+import java.util.Scanner;
+
+public class JJi {
+	public static void main(String[] args) {
+		Scanner sr=new Scanner(System.in);
+		System.out.printf("请输入一个数:");
+		int j=sr.nextInt();
+		double i=(double)j;
+		String ji=String.format("\n%d,%f\n",j,i);
+		System.out.println("jishixin+"+j);
+		System.out.printf("%f", i);
+		System.out.println(ji);
+	}
+}
+
+找钱
+package jishixin;
+import java.util.Scanner;
+public class Money {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入一个数:");
+		double m=input.nextDouble();
+		int i,j,k,l,h;
+		i=(int)m/10;
+		j=((int)m%10)/5;
+		k=((int)m%10)%5;
+		l=((int)(m*10)%10)/5;
+		h=((int)(m*10)%10)%5;
+		System.out.printf("10元:%d\n5元:%d\n1元:%d\n5角:%d\n1角:%d", i,j,k,l,h);
+	}
+
+}
+IF语句判断字符
+package jishixin;
+import java.util.Scanner;
+public class HelloWorld{
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入一个字符:");
+		char ch=input.next().charAt(0);
+		if(ch>='A'&&ch<='B') {
+			System.out.print("输入了正确字符");
+		}
+		else
+			System.err.print("输入了错误字符");
+	}
+}
+
+判断是一年中的第几天
+package jishixin;
+
+import java.util.Scanner;
+
+public class calendar {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入年月日:");
+		int year=input.nextInt();
+		int month=input.nextInt();
+		int day=input.nextInt();
+		int sum=0;
+		int leap=0;
+		switch(month)
+		{
+		case 1:break;
+		case 2:sum=31;break;
+		case 3:sum=59;break;
+		case 4:sum=90;break;
+		case 5:sum=120;break;
+		case 6:sum=151;break;
+		case 7:sum=181;break;
+		case 8:sum=212;break;
+		case 9:sum=243;break;
+		case 10:sum=273;break;
+		case 11:sum=304;break;
+		case 12:sum=334;break;
+		}
+		sum+=day;
+		if(year%4==0&&year%100!=0||year%400==0) {
+			leap=1;
+			sum++;
+			System.out.println("此年为闰年");
+		}
+		else {
+			System.out.println("此年为平年");
+		}
+		System.out.println("此天是这年的第"+sum+"天");
+	}
+}
+
+输入数各位的总和
+package jishixin;
+
+import java.util.Scanner;
+
+public class Money {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int number=input.nextInt();
+		int sum=0;
+		while(number!=0) {
+			sum+=number%10;
+			number/=10;
+		}
+		System.out.println(sum);
+	}
+}
+循环实现3此输入密码,错误并退出
+package jishixin;
+
+import java.util.Scanner;
+
+public class Loop {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int i=1;
+		while(i<=3) {
+			System.out.print("请输入密码");
+			String password=input.next();
+			if(password.equals("123456")) {
+				System.out.print("密码正确"); break;
+			}
+			else {
+				System.out.println("密码错误");
+				i++;
+			}
+			if(i>3)
+				System.out.println("程序结束");
+		}
+	}
+}
+
+九九乘法表
+package jishixin;
+
+public class JJi {
+	public static void main(String[] args) {
+		int i,j;
+		for(i=1;i<=9;i++) {
+			for(j=1;j<=i;j++) {
+				System.out.printf("%d*%d=%d\t",j,i,j*i);
+			}
+			System.out.print("\n");
+		}
+	}
+}
+
+计算面积程序
+import java.util.Scanner;
+
+public class Calculating {
+	public static void main(String[]args){
+		Scanner input=new Scanner(System.in);		
+			int i;
+			do {
+				System.out.println("``1``计算圆的面积");
+				System.out.println("``2``计算矩形的面积");
+				System.out.println("``3``计算三角形的面积");
+				System.out.println("``4``退出程序");
+				System.out.print("请输入一个1-4数:");
+				i=input.nextInt();
+				switch(i) {
+				case 1:System.out.print("请输入半径的值:");
+					   double r=input.nextDouble();
+					   if(Verification(r)==0) {
+						   do {
+							   System.out.println("``请输入大于0的数:");
+							   r=input.nextDouble();
+						   }while(r<=0);
+					   }
+					   Round(r);
+					   break;
+				case 2:System.out.print("请输入矩形的长和宽:");
+					   double l=input.nextDouble(),w=input.nextDouble();
+					   Rectangular(l,w);
+					   break;
+				case 3:System.out.print("请输入底和高:");
+					   double b=input.nextDouble(),h=input.nextDouble();
+					   Triangle(b,h);
+					   break;
+				case 4:break;
+				default:System.out.println("都说啦``要1-4的数啦```");
+				}
+			}while(i!=4);
+			if(i==4)
+				System.out.println("``本程序已关闭``");
+	}
+	static  void Round(double x){
+		double area;
+		area=x*x*3.14;
+		System.out.println("圆的面积为"+area);
+	}
+	static void Rectangular(double x,double y){
+		double area;
+		area=x*y;
+		System.out.println("矩形的面积为"+area);
+	}
+	static void Triangle(double x,double y){
+		double area;
+		area=x*y;
+		System.out.println("三角形的面积为"+area);
+	}
+	static double Verification(double x) {
+		if(x>0) x=1;
+		else x=0;
+		return x;
+		
+	}
+}
+计算器
+package jishixin;
+
+import java.util.Scanner;
+
+public class Jsj {
+	public static void main(String [] args) {
+		Scanner input =new Scanner(System.in);
+		System.out.print("请输入两个数");
+		double number1=input.nextDouble();
+		double number2=input.nextDouble();
+		String yz="";
+		double z=0;
+		do {
+		System.out.print("请输入一个计算符号");
+		String op=input.next();
+		switch(op) {
+		case "+": z=number1+number2;
+				  System.out.printf("%.2f + %.2f = %.2f",number1,number2,z);
+				  break;
+		case "-": z=number1-number2;
+				  System.out.printf("%.2f - %.2f = %.2f",number1,number2,z);
+				  break;
+		case "*": z=number1*number2;
+		  		  System.out.printf("%.2f * %.2f = %.2f",number1,number2,z);
+		  		  break;
+		case "/": if(number2==0) {
+									System.out.println("被除数不能为0");
+									break;
+							}
+				  z=number1/number2;
+		  		  System.out.printf("%.2f / %.2f = %.2f",number1,number2,z);
+		  		  break;
+		case "%": z=number1-number2;
+		  		  System.out.printf("%.2f - %.2f = %.2f",number1,number2,z);
+		  		  break;
+		default : System.out.println("你输入了未知符号,无法计算结果");
+		}
+		System.out.println("是否要继续(y/n)");
+		yz=input.next();
+	  }while("y".equalsIgnoreCase(yz));//忽视大小写
+	}
+for循环算平均值
+package jishixin;
+
+import java.util.Scanner;
+
+public class Avg {
+	public static void main(String [] args) {
+		Scanner input=new Scanner(System.in);
+		double zdl=0;
+		double sum=0;
+		double avg=0;
+		for(int i=0;i<3;i++) {
+			System.out.printf("请输入第%d个人战斗力:",i+1);
+			zdl=input.nextDouble();
+			sum+=zdl;
+		}
+		avg=sum/3;
+		System.out.println("三人战斗力的平均值为"+avg);
+	}
+}
+}
+七月日历
+package jishixin;
+
+public class Calendar1 {
+	public static void main(String []args) {
+		System.out.println("星期一\t星期二\t星期三\t星期四\t星期五\t星期六\t星期天");
+		for(int i=0;i<=31;i++) {
+			if(i==0)  System.out.print("\t");
+			else if((i)%7==0) System.out.print("\n"+i+"\t");
+			else System.out.print(i+"\t");
+		}
+	}
+}
+break运用
+package jishixin;
+
+import java.util.Scanner;
+
+public class Contribution {
+	public static void main(String[]args) {
+		Scanner input=new Scanner(System.in);
+		int i;
+		int sum=0;
+		do {
+			System.out.print("请输入你要贡献的值:");
+			i=input.nextInt();
+			if(i<0) {
+				System.out.println("个人贡献度不能为负数,程序强制退出");
+				break;
+			}
+			sum+=i;
+		}while(i>=0);
+		System.out.print("当前贡献度为"+sum);
+	}
+}
+
+猜值
+package jishixin;
+
+import java.util.Scanner;
+
+public class Guess {
+	public static void main(String [] args) {
+		Scanner input = new Scanner(System.in);
+		int z=5000;
+		int i;
+		for(i=1;i<=5;i++) {
+			System.out.printf("请输入你第%d猜的数:",i);
+			int zs=input.nextInt();
+			if(zs==5000) {
+				System.out.println("猜对了");
+				break;
+			}
+			if(zs<5000)
+				System.out.println("猜小了");
+			if(zs>5000)
+				System.out.println("猜大了");
+		}
+		if(i>5) 
+			System.out.println("不号意思,只有5次机会");
+		if(i<=5) {
+			if(i==1)  System.out.println("牛B");
+			if(i>=2&&i<=4) System.out.println("还行");
+			if(i==5)  System.out.println("一般般啦");
+		}
+	}
+}
+
+循环输入5个人的消费总额,统计低于500的人数
+package jishixin;
+
+import java.util.Scanner;
+
+public class Continue {
+	public static void main(String [] args) {
+//		循环输入5个人的消费总额,统计低于500的人数
+		Scanner input=new Scanner(System.in);
+		int sum=0;
+		double z=0;
+		for(int i=1;i<=5;i++) {
+			System.out.print("请输入第"+i+"个人的消费金额:");
+			z=input.nextDouble();
+			if(z>500) continue;
+			sum++;
+		}
+		System.out.println(sum);
+	}
+}
+菱形
+package jishixin;
+
+public class Triangle {
+	public static void main(String []args) {
+		int i,j,k;
+		for(i=0;i<4;i++) {
+			for(j=0;j<3-i;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<2*i+1;k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+		for(i=0;i<3;i++) {
+			for(j=0;j<i+1;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<5-2*i;k++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+}
+字母菱形
+package jishixin;
+
+public class Triangle {
+	public static void main(String []args) {
+		int i,j,k;
+		char o='A';
+		for(i=0;i<4;i++,o+=1) {
+			for(j=0;j<3-i;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<2*i+1;k++) {
+				System.out.printf("%c",o);
+			}
+			System.out.println();
+		}
+		for(i=0;i<3;i++,o+=1) {
+			for(j=0;j<i+1;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<5-2*i;k++) {
+				System.out.printf("%c",o);
+			}
+			
+			System.out.println();
+		}
+	}
+}
+
+空心菱形
+package jishixin;
+
+public class Triangle {
+	public static void main(String []args) {
+		int i,j,k;
+		for(i=0;i<4;i++) {
+			for(j=0;j<3-i;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<2*i+1;k++) {
+				if(k==0||k==2*i)
+				    System.out.print("*");
+				else
+					System.out.print(" ");
+			}
+			System.out.println();
+		}
+		for(i=0;i<3;i++) {
+			for(j=0;j<i+1;j++) {
+				System.out.print(" ");
+			}
+			for(k=0;k<5-2*i;k++) {
+				if(k==0||k==2*i||k==4)
+				    System.out.print("*");
+				else
+					System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+一维数组的定义,输入与输出
+package jishixin;
+
+import java.util.*;
+
+public class Triangle {
+	public static void main(String []args) {
+		Scanner input=new Scanner(System.in);
+		final int N=5;//宏定义
+		int [] s=new int[5];
+		int sum=0;
+		int avg=0;
+		for(int i=0;i<s.length;i++) {
+			System.out.print("请输入第"+(i+1)+"位的成绩");
+			s[i]=input.nextInt();
+			sum+=s[i];
+		}
+		avg=sum/5;
+		System.out.println("平均值为:"+avg);
+	}
+}
+
+类似兔子问题
+package jishixin;
+
+import java.util.*;
+
+public class Triangle {
+	public static void main(String []args) {
+		Scanner input=new Scanner(System.in);
+		int [] s=new int [15];
+		s[0]=0;
+		s[1]=1;
+		for(int i=2;i<15;i++) {
+			s[i]=s[i-1]+s[i-2];
+		}
+		for(int i=0;i<15;i++) {
+			System.out.println(s[i]);;
+		}
+	}
+}
+
+数组最大最小值
+package jishixin;
+
+import java.util.*;
+
+public class Triangle {
+	public static void main(String []args) {
+		Scanner input=new Scanner(System.in);
+		int [] s=new int[5];
+		System.out.print("请输入5 个数:");
+		for(int i=0;i<5;i++) {
+			s[i]=input.nextInt();
+		}
+		int min=Integer.MAX_VALUE,max=Integer.MIN_VALUE;
+		for(int i=0;i<5;i++) {
+			if(s[i]>max) max=s[i];
+			if(s[i]<min) min=s[i];
+		}
+		System.out.println("最大值:"+max+"最小值"+min);
+	}
+}
+
+一维数组奇偶数
+package jishixin;
+
+import java.util.*;
+
+public class Triangle {
+	public static void main(String []args) {
+		Scanner input=new Scanner(System.in);
+		int [] s=new int[5];
+		System.out.print("请输入5 个数:");
+		for(int i=0;i<5;i++) {
+			s[i]=input.nextInt();
+		}
+		int j=0,k=0;
+		for(int i=0;i<5;i++) {
+			if(s[i]%2==0)  j++;
+			if(s[i]%2==1)  k++;
+		}
+		System.out.println("偶数个数:"+j+"奇数个数"+k);
+	}
+}
+
+一维数组查找目标
+package jishixin;
+
+import java.util.*;
+
+public class Triangle {
+	public static void main(String []args) {
+		Scanner input=new Scanner(System.in);
+		int [] s=new int[5];
+		System.out.print("请输入5 个数:");
+		for(int i=0;i<5;i++) {
+			s[i]=input.nextInt();
+		}
+		System.out.print("请输入一个要查找的数:");
+		int x=0;
+		int m=-1;
+		x=input.nextInt();
+		for(int i=0;i<5;i++) {
+			if(x==s[i]) {
+				m=i;
+				System.out.println("找到了,下标为:"+i);
+				break;
+			}
+		}
+		if(m==-1) {
+			System.out.println("没有找到");
+		}
+	}
+}
+
+洗牌
+import java.util.*;
+public class Xipai{
+	public static void main(String[]args){
+		int temp=0;
+		int [] s=new int[52];
+		String [] t={"红桃","黑桃","方块","梅花"};
+		String [] g={"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
+		for(int i=0;i<52;i++){
+			s[i]=i;
+		}
+		System.out.println("洗牌前:");
+		for(int i=0;i<52;i++){
+		
+		System.out.printf("%s-%s"  ,t[s[i]/13],g[s[i]%13]);           
+		
+		           if((i+1)%13==0)System.out.println();
+	
+		}
+		for(int i=0;i<52;i++){
+			int r=(int)(Math.random()*52);
+			temp=s[i];
+			s[i]=s[r];
+			s[r]=temp;
+		}
+		for(int i=0;i<52;i++){
+			
+		System.out.printf("%s-%s  ",t[s[i]/13],g[s[i]%13]);
+		
+		if((i+1)%13==0)
+			System.out.println();
+	
+		}   
+	}
+}
+
+数组的增删和二分法查找
+import java.util.*;
+
+public class Dichotomy {
+	public static void main(String [] args) {
+		Scanner input=new Scanner(System.in);
+		int [] s=new int [5];
+		for(int i=0;i<5;i++) {
+			s[i]=(int)(Math.random()*10);
+		}
+		Arrays.sort(s);
+		for(int i=0;i<5;i++) {
+			System.out.print(s[i]+" ");
+		}
+		System.out.print("\n请输入你想要删除的数:");
+		int f=input.nextInt();
+		int sum=0;
+		for(int i=0;i<5;i++) {
+			if(s[i]==f) {
+				sum=i;
+				break;
+			}
+		}
+		for(int k=sum;k<4;k++) {
+			s[k]=s[k+1];
+		}
+		for(int i=0;i<4;i++) {
+			System.out.print(s[i]+" ");
+		}
+		System.out.print("\n请输入你想要加入的数:");
+		int p=input.nextInt();
+		s[4]=p;
+		Arrays.sort(s);
+		for(int i=0;i<5;i++) {
+			System.out.print(s[i]+" ");
+		}
+		
+//		int a=input.nextInt();
+//		int low;
+//		int high=5;
+//		boolean isfind=false;
+//		for(low=0;low<=high;) {
+//			int mid=(low+high)/2;
+//			if(a==s[mid]) {
+//				System.out.println(mid);
+//				break;
+//			}
+//			else if(a>s[mid]) {
+//				low=mid+1;
+//			}
+//			else if(a<s[mid]) {
+//				high=mid-1;
+//			}
+//		}
+//		if(!isfind) {
+//			System.out.println("没找到");
+//		}
+	}
+}
+
+二维数组和Sort排序
+package jishixin1;
+
+import java.util.*;
+
+public class jsj {
+	public static void main(String [] args) {
+		Scanner input =new Scanner(System.in);
+		int [][]s=new int [3][4];
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<4;j++) {
+				s[i][j]=input.nextInt();
+			}
+		}
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.print(s[i][j]+" ");
+			}
+			System.out.println();
+		}
+		for(int i=0;i<3;i++) {
+			Arrays.sort(s[i]);
+		}
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<4;j++) {
+				System.out.print(s[i][j]+" ");
+			}
+			System.out.println();
+		}
+	}
+}
+
+二维数组与一维结合
+package jishixin1;
+
+import java.util.*;
+
+public class jsj {
+	public static void main(String [] args) {
+		Scanner input =new Scanner(System.in);
+		String [] name= {"小桃","志清","择林"};
+		String [] score= {"语文","数学","英语"};
+		int [][]s=new int [3][3];
+		for(int i=0;i<3;i++) {
+			for(int j=0;j<3;j++) {
+				System.out.printf("请输入%s的%s成绩:",name[i],score[j]);
+				s[i][j]=input.nextInt();
+			}
+		}
+		for(int i=0;i<3;i++)
+			System.out.print("\t"+score[i]);
+		System.out.println();
+		for(int i=0;i<3;i++) {
+			System.out.print(name[i]+"\t");
+			for(int j=0;j<3;j++) {
+				System.out.printf("%d\t",s[i][j]);
+			}
+			System.out.println();
+		}
+	}
+}
+
+类方法下的进制转换(十进制与十六进制)
+package jishixin1;
+
+import java.util.*;
+
+import javax.swing.JOptionPane;
+public class Test {
+	public static void main(String [] args) {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入一个要转换的数:");
+		int i=input.nextInt();
+		System.out.print("转换后的数为:");
+		System.out.println(Dstohex(i));
+		System.out.println(Hextods(Dstohex(i)));
+	}
+	public static String Dstohex(int x) {
+		String hex= "";
+		while(x!=0) {
+			int temp=x%16;
+			if(temp>=0&&temp<=9) {
+				hex=temp+hex;
+			}
+			else if(temp>=10&&temp<=15) {
+				hex=(char)(temp-10+'A')+hex;
+			}
+			x/=16;
+		}
+		return hex;
+	}
+	public static int Hextods(String x) {
+		int ds=0;
+		for (int i = 0; i < x.length(); i++) {
+			char tempchar=x.charAt(i);
+			if(tempchar>='0'&&tempchar<='9') {
+				ds+=(tempchar-'0')*Math.pow(16,x.length()-i-1);
+			}
+			else if(tempchar>='A'&&tempchar <='F') {
+				ds+=(tempchar-'A'+10)*Math.pow(16,x.length()-i-1);
+			}
+		}
+		return ds;
+	}
+}
+
+自定义方法重载
+package jishixin1;
+import java.util.*;
+public class Test1 {
+	public static void main(String[] args) {
+		hanhua("世界");
+	}
+	public static void hanhua(String s) {
+		String []f= {
+			"吉世新真帅!",
+			"不是一般的帅!",
+			"那是真帅!"
+		};
+		int j=(int)(Math.random()*3);
+		hanhua(s,"吉世新",f[j],3);
+	}
+	public static void hanhua(String s,String x,String a,int b) {
+		for(int i=0;i<b;i++) {
+			System.out.println("["+s+"]"+x+":"+a);
+		}
+	}
+}
+
+类方法打印月历
+package jishixin1;
+import java.util.*;
+public class Test1 {
+	public static int year=0;
+	public static int month=0;
+	public static int [] months= {31,28,31,30,31,30,31,31,30,31,30,31};
+	public static void main(String[] args) {
+//		1.让用户输入年份和月份
+		Input();
+//		2.计算1900-1-1都用户输入年份月份的总天数
+//			1.计算各年的总天数
+		int sum=Yearsum();
+		sum+=Monthsum();
+		sum++;
+//			2.计算各月的天数之和
+//		3.打印年份和月份(英文)
+		printyear();
+//		4.打印月份的标题
+		printmonth();
+//		5.根据某月1日是星期几,打印月历的内容
+		printsum(sum%7);
+	}
+	public static void Input() {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入年份:");
+		year=input.nextInt();
+		System.out.print("请输入月份:");
+		month=input.nextInt();
+	}
+	public static int Yearsum() {
+		int sum=0;
+		for(int i=1900;i<year;i++) {
+			sum+=365;
+			if(i%400==0||i%4==0&&i%100!=0) {
+				sum++;
+			}
+		}
+		return sum;
+	}
+	public static int Monthsum() {
+		int sum=0;
+		for(int i=0;i<month-1;i++) {
+			sum+=months[i];
+		}
+		if(month>2&&(year%400==0||year%4==0&&year%100!=0)) {
+			sum++;
+		}
+		return sum;
+	}
+	public static void printyear() {
+		System.out.println("\t\t"+year+"\t"+month);
+	}
+	public static void printmonth() {
+		System.out.println("星期一\t星期二\t星期三\t星期四\t星期五\t星期六\t星期天");
+	}
+	public static void printsum(int dayofweek) {
+		int x=0;
+		if(dayofweek==0) {
+			x=6;
+		}else {
+			x=dayofweek-1;
+		}
+		for(int i=0;i<x;i++) {
+			System.out.print("\t");
+		}
+		for(int i=0;i<months[month-1];i++) {
+			System.out.print(i+1);
+			if((dayofweek+i)%7==0) {
+				System.out.println();
+			}else {
+				System.out.print("\t");
+			}
+		}
+	}
+}
+
+计算圆面积类方法
+package jishixin1;
+
+import java.util.Scanner;
+
+public class Jisuan {
+	public double r;
+	public double length;
+	public double area;
+	public void input() {
+		Scanner input=new Scanner(System.in);
+		System.out.print("请输入R的值:");
+		r=input.nextDouble();
+		lengthh();
+		areaa();
+	}
+	private void lengthh() {
+		length=2*Math.PI*r;
+		System.out.println("圆的周长为:"+length);
+	}
+	private void areaa() {
+		area=Math.PI*Math.pow(r, 2);
+		System.out.println("圆的面积为:"+area);
+	}
+}
+
+
+字符串函数转字符再排序
+import java.util.*;
+
+public class Jisuantest {
+	public static void main(String [] args) {
+		String y= "jjisnjsdadnjaks";
+		char []x=y.toCharArray();
+		Arrays.sort(x);
+		String.valueOf(x);
+		System.out.println(x);
+	}
+}
+
+Java封装类
+package jishixin1;
+
+public class Hero {
+
+	private long id;
+
+	private String nickName;
+
+	private int level;
+
+	private long exp;//升级所需要的经验值
+
+	private long currexp;//当前的经验值
+	
+	public long getCurrexp() {
+		return currexp;
+	}
+
+	public void setCurrexp(long currexp) {
+		this.currexp = currexp;
+	}
+
+	public long getid() {
+		return 0;
+	}
+
+	public void setid(long id) {
+
+	}
+
+	public Hero() {
+		super();
+	}
+	public Hero(String nickName) {
+		this.nickName=nickName;
+	}
+
+	public Hero(long id, String nickName, int level, long exp) {
+		super();
+		this.id = id;
+		this.nickName = nickName;
+		this.level = level;
+		this.exp = exp;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		if(id<0) id=1;
+		else
+		this.id = id;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	private void setNickName(String nickName) {
+		if(nickName==null) {
+			nickName="未知英雄";
+		}else
+		this.nickName = nickName;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		if(level<1||level>999)  level=1;
+		else
+		this.level = level;
+	}
+
+	public long getExp() {
+		exp=((long)Math.pow((level-1), 3)+60)/5*((level-1)*2+60);
+		return exp;
+	}
+
+
+}
+
+
+3.27  java课上的不重复随机数
+package Test;
+
+import java.util.Scanner;
+
+public class test {
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		String []s= {"sad","saf","sag","qw","as"};
+		int [] x= {9,9,9,9,9};
+		int i=0;
+		int j=0;
+		int sum=0;
+		do {
+			int r=(int)(Math.random()*s.length);
+			for(j=0;j<x.length;j++) {
+				if(x[j]==r)break;
+			}
+			if (j!=x.length) {
+				continue;
+			}
+			System.out.println(s[r]);
+			
+			input.nextLine();
+			x[i]=r;
+			i++;
+		} while (i<5);
+	}
+}
+
+
+java  compara比较
+package Test;
+
+import java.util.Scanner;
+
+public class test {
+	public static void main(String[] args) {
+		int num1=100;
+		Double double1=new Double(200);
+		int i=double1.compareTo(100.0);
+		if (i==0) {
+			System.out.println("一样大");
+		}else {
+			System.out.println("不一样");
+		}
+	}
+}
+
+
+判断小数点
+package String;
+
+import java.util.*;
+
+public class StringDemo {
+	public static boolean isDecimal(String str) {
+		boolean isDecimal=true;
+		for (int i = 0; i < str.length(); i++) {
+			if(!Character.isDigit(str.charAt(i))){
+				if(str.charAt(i)=='.') {
+					if (i==0||i==str.length()-1) {
+						isDecimal=false;
+						break;
+					}
+				}else {
+					isDecimal=false;
+					break;
+				}
+			}
+			
+		}
+		if (!(str.contains(".")&&str.indexOf(".")==str.lastIndexOf("."))) {
+			isDecimal=false;
+		}
+		return isDecimal;
+	}
+	public static void main(String[] args){
+		Scanner in=new Scanner(System.in);
+		System.out.print("请输入一个数:");
+		String x=in.next();
+		if (isDecimal(x)==true) {
+			System.out.println(x+"   是对的数");
+		}else {
+			System.err.println(x+"   是错的数");
+		}
+	}
+}
+
+
+import java.util.Calendar;
+import java.util.Date;
+
+public class Test {
+
+	public static void main(String[] args) {
+		Calendar calendar=Calendar.getInstance();
+//		Date date=calendar.getTime();
+//		System.out.println(date.toLocaleString());
+		int year=calendar.get(Calendar.YEAR);
+		int month=calendar.get(Calendar.MONTH)+1;
+		int day=calendar.get(Calendar.DAY_OF_MONTH);
+		int hour=calendar.get(Calendar.HOUR_OF_DAY);
+		int minute=calendar.get(Calendar.MINUTE);
+		int second=calendar.get(Calendar.SECOND);
+		String time =String.format("%d-%d-%d  %d:%d:%d", year , month ,day,hour,minute,second);
+		System.out.println(time);
+	}
+
+}

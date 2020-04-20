@@ -1,0 +1,96 @@
+create database mydb
+on
+(
+	name='mydb',
+	filename='E:\SQL\mydb.mdf',
+	size=10,
+	maxsize=unlimited,
+	filegrowth=20%
+)
+log on
+(
+	name='mydb_log',
+	filename='E:\SQL\mydb_log.ldf',
+	size=10mb,
+	maxsize=unlimited,
+	filegrowth=20
+)
+go
+
+修改文件
+use my
+go
+alter database my
+modify file
+(
+	name='my1',
+	size=100
+)
+go 
+
+创建表
+use jishixin
+go
+create table 教师
+(
+	教师编号 int primary key,
+	教师姓名 varchar(30) not null,
+	性别     char(2) check(性别='男' or 性别='女') not null,
+	出生日期 datetime,
+	个人联系电话  varchar(11) unique,
+	政治面貌 varchar(20),
+	身份证 char(18),
+	邮政编码 char(10),
+	家庭联系电话 char(11) unique,
+	家庭联系地址 varchar(100)
+)
+
+
+UPDATE  更新数据的使用
+use 学生管理
+go
+update 顾客
+set 年龄=18
+where 性别='男'
+
+
+通过计算出生日期求年龄
+select DATEDIFF(yy,出生日期,GETDATE())
+from 出生日期
+
+
+
+
+T-SQL   输出9*9
+declare @i int,@j int,@x varchar(200)
+select @i=1,@j=1
+while(@i<=9)
+begin
+	set @x=''
+	while(@j<=@i)
+	begin
+		set @x= @x+(convert(varchar,@j)+ '*' + convert(varchar,@i)+ '=' + convert(char(4),@i*@j) + ' ')
+		set @j=@j+1
+	end
+	print @x
+	set @j=1
+	set @i=@i+1
+end
+
+
+分组
+select c_Gender ,count(*) from Customers
+where DATEDIFF(YY,c_Birth,GETDATE())<10
+group by c_Gender
+
+use WebShop
+go
+select c_ID,SUM(o_Sum) from Orders
+group by c_ID
+having SUM(o_Sum)>(select AVG(o_Sum)from Orders)
+
+use WebShop
+go
+select * ,datediff(day,o_Date,getdate())from Orders
+order by c_ID
+compute SUM(o_Sum),sum(datediff(day,o_Date,getdate())) by c_ID

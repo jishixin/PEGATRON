@@ -1,0 +1,7 @@
+﻿request.getRequestDispatcher("10241.jsp").forward(request, response);
+页面跳转并获取数据
+
+
+response.sendRedirect("login.jsp");
+return;
+response跳转页面之后必须return;防止后续代码影响导致报错(无法跳转)
