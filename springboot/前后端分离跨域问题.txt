@@ -1,0 +1,2 @@
+在Controller 类里加上
+@CrossOrigin注解
