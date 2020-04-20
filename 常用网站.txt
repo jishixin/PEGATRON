@@ -1,0 +1,7 @@
+https://mvnrepository.com/
+https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html
+https://qbgbook.gitbooks.io/spring-boot-reference-guide-zh/content/
+https://picsum.photos/images
+https://wallhaven.cc/
+https://www.springcloud.cc/spring-cloud-dalston.html
+https://www.cnblogs.com/fallTakeMan/p/11670643.html
