@@ -1,0 +1,6 @@
+日志组件:
+	logback
+图片处理:
+	thumbnailator
+验证码:
+	kaptcha
